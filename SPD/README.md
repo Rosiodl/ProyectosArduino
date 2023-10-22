@@ -11,6 +11,13 @@ Diseño de un contador de 0 a 99 utilizando dos displays de 7 segmentos y tres b
 controlar la cuenta, implementando la técnica de multiplexación para mostrar los dígitos
 en los displays. El contador comienza en 0 y aumentar o disminuir su valor en una unidad con los botones.
 
+#### Multiplexación
+Su función es encaminar las señales binarias de 2n líneas posibles de entrada en una única línea de salida. 
+
+En este proyecto se utiliza para compartir los 7 segmentos para los dos displays (unidad y de decena). 
+Se utiliza esta modalidad porque no alcanzarían los pines del arduino para hacerlo en forma independiente.
+Cuando se asignan en los 7 segmentos los bits necesarios para que se prenda el display de unidad se activa su pin analógico y se desactiva el de la decena. 
+Cuando se envian los bits de la decena se realiza en forma inversa
 
 ## Función principal
 
