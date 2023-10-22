@@ -68,6 +68,7 @@ int controlDeBoton(){
 
 ## Descripción
 Diseño de un contador de 0 a 99 utilizando dos displays de 7 segmentos y un interruptor deslizante.
+
 Si el interruptor se encuentra posicionado a la izquierda, el display muestra los números primos en el rango de 0 a 99.
 En caso de que el display se encuentre hacia la derecha, el display muestra el contador de 0 a 99.
 
