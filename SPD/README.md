@@ -14,10 +14,17 @@ en los displays. El contador comienza en 0 y aumentar o disminuir su valor en un
 
 ## Función principal
 
-## Parte 2: Modificación con Interruptor deslizante y números primos
+## Parte 2.1: Modificación con Interruptor deslizante y números primos
 
 
 ![parte2](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/7b74981b-76b0-4c4d-8d54-20e56e792ba6)
+
+## Descripción
+Diseño de un contador de 0 a 99 utilizando dos displays de 7 segmentos y un interruptor deslizante.
+Si el interruptor se encuentra posicionado a la izquierda, el display muestra los números primos en el rango de 0 a 99.
+En caso de que el display se encuentre hacia la derecha, el display muestra el contador de 0 a 99.
+
+## Parte 2.2: Modificación con Interruptor deslizante, números primos, motor de CC y sensor de temperatura
 
 #### Motor de corriente continua
 
@@ -42,6 +49,7 @@ Un sensor de temperatura es un sistema que detecta variaciones en la temperatura
 Se componen principalmente de tres partes:
 Un elemento sensor, una vaina de material conductor en su interior y un cable que conecta al sistema electrónico en cuestión.
 En Arduino, el sensor de temperatura proporciona una salida de voltaje proporcional a la temperatura, por lo tanto, es necesario convertir ese voltaje a grados Celsius. En este caso, esa conversión de temperatura se hizo utilizando la función map.
+
 
 ![sensor](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/5e54bd23-f414-4169-94ba-e498d40bbc86)
 
