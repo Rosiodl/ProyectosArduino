@@ -20,14 +20,33 @@ Cuando se asignan en los 7 segmentos los bits necesarios para que se prenda el d
 Cuando se envian los bits de la decena se realiza en forma inversa
 
 ## Función principal
-void modoPrimos(int numero){
-  int divisores = 0;
+
+```C
+void setup()
+{
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+    
+  pinMode(UNIDAD, OUTPUT);
+  pinMode(DECENA, OUTPUT);
   
-  for(int i = 1; i<= numero; i++){
-    if (contador%i == 0){
-      divisores ++;
-    }
-  }
+  pinMode(FOTORESISTENCIA, INPUT);
+  
+  digitalWrite(UNIDAD,HIGH);
+  digitalWrite(DECENA,HIGH);
+  digitalWrite(MOTOR,HIGH);
+    
+  pinMode(MOTOR, OUTPUT);  
+  
+  Serial.begin(9600);
+}
+
+```
 
 
 ## Parte 2.1: Modificación con Interruptor deslizante y números primos
@@ -40,7 +59,7 @@ Diseño de un contador de 0 a 99 utilizando dos displays de 7 segmentos y un int
 Si el interruptor se encuentra posicionado a la izquierda, el display muestra los números primos en el rango de 0 a 99.
 En caso de que el display se encuentre hacia la derecha, el display muestra el contador de 0 a 99.
 
-## Parte 2.2: Modificación con Interruptor deslizante, números primos, motor de CC y sensor de temperatura
+## Parte 2.2: Modificación con motor de CC y sensor de temperatura
 
 #### Motor de corriente continua
 
@@ -64,10 +83,11 @@ Este tipo de motores puede ser aprovechado en objetos que requieran movimiento, 
 #### Sensor de temperatura
 
 Un sensor de temperatura es un sistema que detecta variaciones en la temperatura y las transforma en una señal eléctrica que llega hasta un sistema electrónico.
+
 Se componen principalmente de tres partes:
-* Un elemento sensor
-* Una vaina de material conductor en su interior
-* Un cable que conecta al sistema electrónico en cuestión.
+* Elemento sensor: Esta es la parte central del sensor que responde a los cambios de temperatura.
+* Carcasa: Protege el sensor de influencias ambientales, como la humedad, la suciedad y la corrosión. La carcasa también puede ayudar a mejorar la transferencia de calor entre el elemento sensor y el objeto cuya temperatura se está midiendo.
+* Cableado: El sensor está conectado a un cable que lleva la señal eléctrica desde el elemento sensor hasta el dispositivo de lectura o control. 
   
 En Arduino, el sensor de temperatura proporciona una salida de voltaje proporcional a la temperatura, por lo tanto, es necesario convertir ese voltaje a grados Celsius. En este caso, esa conversión de temperatura se hizo utilizando la función map.
 
