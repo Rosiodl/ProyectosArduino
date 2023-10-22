@@ -3,7 +3,8 @@
 * Gonzalez, Lisandro
 
 ## Parte 1: Contador de 0 a 99 con Display 7 Segmentos y Multiplexación
-![parte1](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/5386cd02-d114-434a-b501-2f6732091567)
+
+![parte1](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/6f87e4b6-81fa-4c9a-9c62-e31ac41ab8ea)
 
 
 ## Descripción
@@ -61,7 +62,7 @@ int controlDeBoton(){
 
 ## Parte 2.1: Modificación con Interruptor deslizante y números primos
 
-![parte2](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/0c989763-9cc6-47be-88cc-38e4f53f00ce)
+![parte2](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/20702a09-b448-4373-9d87-b7fa58a7ca9c)
 
 
 
