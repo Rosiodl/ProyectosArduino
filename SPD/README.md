@@ -74,7 +74,10 @@ En caso de que el display se encuentre hacia la derecha, el display muestra el c
 
 ## Función principal
 
-
+La funcion usa dos funciones, prenderDisplay() la cual se encarga de prender y apagar los visualizadores de la decena y la unidad según corresponda,
+y prenderNumDisplay(), el cual para la parte de las decenas divide el contador por 10, lo cual resulta en un numero flotante, que al haber sido 
+declarado un entero, corta la parte decimal que seria la parte de la unidad, y luego usa el resto de esta division, la cual seria el numero de la 
+parte de la unidad.
 
 
 ```C
