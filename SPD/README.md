@@ -21,43 +21,74 @@ Cuando se envian los bits de la decena se realiza en forma inversa
 
 ## Función principal
 
-```C
-void setup()
-{
-  pinMode(A, OUTPUT);
-  pinMode(B, OUTPUT);
-  pinMode(C, OUTPUT);
-  pinMode(D, OUTPUT);
-  pinMode(E, OUTPUT);
-  pinMode(F, OUTPUT);
-  pinMode(G, OUTPUT);
-    
-  pinMode(UNIDAD, OUTPUT);
-  pinMode(DECENA, OUTPUT);
-  
-  pinMode(FOTORESISTENCIA, INPUT);
-  
-  digitalWrite(UNIDAD,HIGH);
-  digitalWrite(DECENA,HIGH);
-  digitalWrite(MOTOR,HIGH);
-    
-  pinMode(MOTOR, OUTPUT);  
-  
-  Serial.begin(9600);
-}
+En las primeras tres lineas (123-125) de la funcion se le asigna a tres variables el estado del boton asignado (1 -> presionado o 0 -> no presionado), 
+luego mediante el uso de ifs (128-138) pregunta si el estado de cada uno de los botones fue pulsado, y de ser asi, pone en una variable asignada para 
+el estado anterior un 1, y al final de la funcion (140-159), pregunta si el estado de las variables mencionadas al principio cambio respecto a su 
+estado anterior, de ser asi, esto significaria que el boton termino de ser presionado, y por lo tanto, retorna la salida digital del boton que fue 
+accionado.
 
+```C
+int controlDeBoton(){
+  sube = digitalRead(SUBE);
+  baja = digitalRead(BAJA);
+  reset = digitalRead(RESET);
+  
+  if (sube){
+    subeEstadoAnterior = 1;
+  }
+  if (baja){
+    bajaEstadoAnterior = 1;
+  }
+  if (reset){
+    resetEstadoAnterior = 1;
+  }  
+  if (sube == 0 && sube != subeEstadoAnterior){
+    subeEstadoAnterior = sube;
+    return SUBE;
+  }
+  if (baja == 0 && baja != bajaEstadoAnterior){
+    bajaEstadoAnterior = baja;
+    return BAJA;
+  }
+  if (reset == 0 && reset != resetEstadoAnterior){
+    resetEstadoAnterior = reset;
+    return RESET;
+  }  
+  return 0;
+}
 ```
 
 
 ## Parte 2.1: Modificación con Interruptor deslizante y números primos
 
+![parte2](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/0c989763-9cc6-47be-88cc-38e4f53f00ce)
 
-![parte2](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/7b74981b-76b0-4c4d-8d54-20e56e792ba6)
+
 
 ## Descripción
 Diseño de un contador de 0 a 99 utilizando dos displays de 7 segmentos y un interruptor deslizante.
 Si el interruptor se encuentra posicionado a la izquierda, el display muestra los números primos en el rango de 0 a 99.
 En caso de que el display se encuentre hacia la derecha, el display muestra el contador de 0 a 99.
+
+## Función principal
+
+
+
+
+```C
+void mostrarNumeros(int numero){
+  
+  prenderNumDisplay(numero/10);
+  prenderDisplay(DECENA);
+  prenderDisplay(APAGADO);
+  
+  prenderNumDisplay(numero%10);
+  prenderDisplay(UNIDAD);
+  prenderDisplay(APAGADO);
+}
+
+```
+
 
 ## Parte 2.2: Modificación con motor de CC y sensor de temperatura
 
@@ -71,7 +102,7 @@ Sus partes fundamentales son las siguientes:
 
 * Estator: Es la carcasa de material ferromagnético y en su interior se encuentran distribuidos los polos inductores en número par con la intención de que el rotor gire.
 * Entrehierro: Es el nombre que recibe el espacio que existe entre el estator y el rotor, esta distancia es imprescindible para evitar el desgaste de ambas piezas.
-* Rotor: Es la pieza central del motor y está elaborado de acero y silicio barnizado; este elemento es el que gira y mantiene el movimiento en su propio eje para transformar la energía electromagnética en energía mecánica.
+* Rotor: Es la pieza central del motor y está elaborado de acero y silicio barnizado; este elemento es el que gira y mantiene el movimiento en su propio eje para transformar la energía electromagnética en energía     mecánica.
 * Colector de legas: Esta pieza se encuentra montada sobre el eje de giro y cuenta con varias legas fabricadas en cobre de alta pureza y separadas por mica.
 * Escobillas: Son los elementos que permiten el contacto eléctrico entre las delgas y el circuito de corriente continua, están compuestas por grafito y hacen que la presión y el contacto se mantengan constantes.
   
@@ -106,4 +137,5 @@ Una posible incorporación de ambos componentes en el proyecto sería, por ejemp
 
 # Enlaces al proyecto
 * [Parte 1](https://www.tinkercad.com/things/ajBtQkZgpyX-copy-of-primer-parcial-parte-1/editel?sharecode=kyloOgjOjRCKmidilat9jocpUBs_b18UxDfPWX8ttG4) 
-* [Parte 2](https://www.tinkercad.com/things/ks8qoWAqN0g-primer-parcial-parte-2/editel?sharecode=6q1re_Cas0dJkWkAkpKIjD-2QozqC5lB7e4nQ291InQ) 
+* [Parte 2](https://www.tinkercad.com/things/ks8qoWAqN0g-primer-parcial-parte-2/editel?sharecode=6q1re_Cas0dJkWkAkpKIjD-2QozqC5lB7e4nQ291InQ)
+* [Parte 3] 
