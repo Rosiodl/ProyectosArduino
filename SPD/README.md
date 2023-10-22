@@ -19,7 +19,7 @@ en los displays. El contador comienza en 0 y aumentar o disminuir su valor en un
 
 ![parte2](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/7b74981b-76b0-4c4d-8d54-20e56e792ba6)
 
-## Motor de corriente continua
+### Motor de corriente continua
 
 El motor de corriente continua o motor de corriente directa es una máquina con la capacidad de convertir energía eléctrica en movimiento o trabajo mecánico a través de fuerzas electromagnéticas.
 Este dispositivo emplea un rotor con dos polos magnéticos que interactúan de manera constante con un estator con polo Norte y un fijo de polo Sur; el rotor gira sobre su eje y gracias a la repulsión y atracción de sus propios polos con los del estator, se produce un movimiento constante.
@@ -36,14 +36,15 @@ juguetes, giradiscos, electrodomésticos, etc.; en el caso de la industria, se p
 ![motor](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/57858401-4a24-4d30-8b90-9a70dc551479)
 
 
-## Sensor de temperatura
+### Sensor de temperatura
 
 Un sensor de temperatura es un sistema que detecta variaciones en la temperatura y las transforma en una señal eléctrica que llega hasta un sistema electrónico.
 Se componen principalmente de tres partes:
 Un elemento sensor, una vaina de material conductor en su interior y un cable que conecta al sistema electrónico en cuestión.
 En Arduino, el sensor de temperatura proporciona una salida de voltaje proporcional a la temperatura, por lo tanto, es necesario convertir ese voltaje a grados Celsius. En este caso, esa conversión de temperatura se hizo utilizando la función map.
 
-![sensor](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/4c327506-5511-4b7c-b7eb-94e1dd12b421)
+![sensor](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/5e54bd23-f414-4169-94ba-e498d40bbc86)
+
 
 ## Aplicación en el proyecto
 
