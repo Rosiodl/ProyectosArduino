@@ -20,14 +20,15 @@ Cuando se asignan en los 7 segmentos los bits necesarios para que se prenda el d
 Cuando se envian los bits de la decena se realiza en forma inversa
 
 ## Función principal
+void modoPrimos(int numero){
+  int divisores = 0;
+  
+  for(int i = 1; i<= numero; i++){
+    if (contador%i == 0){
+      divisores ++;
+    }
+  }
 
-<dl>
-  <dt>Definition list</dt>
-  <dd>Is something people use sometimes.</dd>
-
-  <dt>Markdown in HTML</dt>
-  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
-</dl>
 
 ## Parte 2.1: Modificación con Interruptor deslizante y números primos
 
