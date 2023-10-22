@@ -1,6 +1,6 @@
 # Integrantes
 * De Luca, Rosio Gisel
-* ,Lisandro
+* Gonzalez, Lisandro
 
 ## Parte 1: Contador de 0 a 99 con Display 7 Segmentos y Multiplexación
 ![parte1](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/5386cd02-d114-434a-b501-2f6732091567)
