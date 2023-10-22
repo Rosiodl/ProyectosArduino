@@ -1,8 +1,8 @@
-#Integrantes
+# Integrantes
 * De luca, Rosio Gisel
 * ,Lisandro
 
-#Proyecto: Contador con display de 7 segmentos
+# Proyecto: Contador con display de 7 segmentos
 
 #Descripción
 
