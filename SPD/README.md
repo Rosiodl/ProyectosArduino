@@ -21,6 +21,14 @@ Cuando se envian los bits de la decena se realiza en forma inversa
 
 ## Función principal
 
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
 ## Parte 2.1: Modificación con Interruptor deslizante y números primos
 
 
