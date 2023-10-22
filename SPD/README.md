@@ -15,5 +15,5 @@ en los displays. El contador comienza en 0 y aumentar o disminuir su valor en un
 # Función principal
 
 # Enlaces al proyecto
-* [Parte 1:](https://www.tinkercad.com/things/ajBtQkZgpyX-copy-of-primer-parcial-parte-1/editel?sharecode=kyloOgjOjRCKmidilat9jocpUBs_b18UxDfPWX8ttG4) 
-* [Parte 2:](https://www.tinkercad.com/things/ks8qoWAqN0g-primer-parcial-parte-2/editel?sharecode=6q1re_Cas0dJkWkAkpKIjD-2QozqC5lB7e4nQ291InQ) 
+* [Parte 1 del proyecto](https://www.tinkercad.com/things/ajBtQkZgpyX-copy-of-primer-parcial-parte-1/editel?sharecode=kyloOgjOjRCKmidilat9jocpUBs_b18UxDfPWX8ttG4) 
+* [Parte 2 del proyecto](https://www.tinkercad.com/things/ks8qoWAqN0g-primer-parcial-parte-2/editel?sharecode=6q1re_Cas0dJkWkAkpKIjD-2QozqC5lB7e4nQ291InQ) 
