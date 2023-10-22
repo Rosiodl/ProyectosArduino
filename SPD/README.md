@@ -3,6 +3,8 @@
 * ,Lisandro
 
 # Proyecto: Contador con display de 7 segmentos
+![parte1](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/5386cd02-d114-434a-b501-2f6732091567)
+
 
 # Descripción
 Diseño de un contador de 0 a 99 utilizando dos displays de 7 segmentos y tres botones para
