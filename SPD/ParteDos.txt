@@ -1,0 +1,251 @@
+// C++ code
+//
+#define A 10
+#define B 11
+#define C 5
+#define D 6
+#define E 7
+#define F 9	
+#define G 8
+
+#define UNIDAD A4
+#define DECENA A5
+#define APAGADO 0
+#define PULSADOR 2
+
+#define MOTOR 13
+#define SENSOR A3
+
+int contador = 0;
+int estadoAnterior = 0;
+
+float sensorTemperatura;
+float temperatura;
+
+void setup()
+{
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+    
+  pinMode(UNIDAD, OUTPUT);
+  pinMode(DECENA, OUTPUT);
+  
+  digitalWrite(UNIDAD,HIGH);
+  digitalWrite(DECENA,HIGH);
+  digitalWrite(MOTOR,LOW);
+  
+  pinMode(PULSADOR, INPUT_PULLUP);
+  
+  pinMode(MOTOR, OUTPUT);
+  
+  Serial.begin(9600);
+}
+
+// Función principal
+             
+void loop()
+{
+  int estadoPulsador = digitalRead(PULSADOR);
+  // Contador
+
+  if (estadoPulsador != estadoAnterior){ // Si cambia el interruptor, resetea el contador
+    contador = 0;
+    estadoAnterior = estadoPulsador;
+  }
+  
+  // Dependiendo de la posicion del pulsador se ejecuta la funcion que corresponda
+  if (estadoPulsador == LOW){ 
+  	versionContador(contador);
+  }
+  else{  
+    versionNumerosPrimos(contador);    
+  }
+  
+  if(contador <= 99){ // Incrementa en 1 el contador
+    contador++;
+  }
+  else{ // De pasarse del 99 lo resetea
+    contador=0;
+  }
+ 
+  controlarMotor();
+  
+}
+//Control de motor según temperatura
+
+void controlarMotor(){
+  
+  sensorTemperatura = analogRead(SENSOR);
+  temperatura = map(sensorTemperatura, 20, 358, -40, 125);
+  
+  // De ser la temperatura mayor o igual a 30 se prende el motor
+  if (temperatura >= 30){  
+     digitalWrite(MOTOR,HIGH);  
+  }
+  else {  
+     digitalWrite(MOTOR,LOW);
+  }
+}
+
+// Encendido de números
+
+void versionNumerosPrimos(int numero){
+  int divisores = 0; // Se inicializa un contador de divisores del numero recibido
+  
+  for(int i = 1; i<= numero; i++){
+    if (contador%i == 0){ // De encontrarse un divisor se incrementa el contador
+      divisores ++;
+    }
+  }
+  /* De ser numero primo (debido a la cantidad de divisores) se ejecuta la funcion */
+  if(divisores <= 2){ 
+  	for (int i = 0; i<35; i++){
+      mostrarNumeros(numero);
+  	}
+  }
+}
+
+/* Se muestra en ambos visualizadores de 7 segmentos el numero correspondiente
+durante la duracion del for */
+void versionContador(int numero){
+  for (int i = 0; i<35; i++){
+    mostrarNumeros(numero);
+  }
+}
+
+void mostrarNumeros(int numero){
+  /* DECENA
+  Enciende el visualizador de la decena dividiendo el numero del contador
+  por 10, asi obteniendo unicamente la parte de la decena. */
+  prenderNumDisplay(numero/10);
+  prenderDisplay(DECENA);
+  prenderDisplay(APAGADO);
+  
+  /* UNIDAD
+  Enciende el visualizador de la unidad con el resto de la division por 10,
+  asi obteniendo unicamente la parte de la unidad. */
+  prenderNumDisplay(numero%10);
+  prenderDisplay(UNIDAD);
+  prenderDisplay(APAGADO);
+  
+}
+
+//Encendido de display
+void prenderDisplay(int digito){
+  // Enciende la unidad/decena o las apaga dependiendo del parametro recibido
+  if (digito == UNIDAD){
+    digitalWrite(UNIDAD, LOW);
+    digitalWrite(DECENA, HIGH);
+    delay(10);
+  }
+  else if (digito == DECENA){
+    digitalWrite(UNIDAD, HIGH);
+    digitalWrite(DECENA, LOW);
+    delay(10);
+  }
+  else{
+    digitalWrite(UNIDAD, HIGH);
+    digitalWrite(DECENA, HIGH);
+  }
+}
+
+// Formación de los números
+
+void prenderNumDisplay(int numero){
+  /* Apaga los visualizadores para que no queden los segmentos prendidos y muestre bien
+  el numero recibido*/
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+  
+  //Enciende segun el numero recibido
+  switch (numero) {
+    case 0:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      break;
+
+    case 1:
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+
+    case 2:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 3:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 4:
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 5:
+      digitalWrite(A, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 6:
+      digitalWrite(A, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 7:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+
+    case 8:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 9:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+   }
+}

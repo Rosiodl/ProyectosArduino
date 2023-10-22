@@ -1,0 +1,253 @@
+/*Diseño de un contador de 0 a 99 utilizando dos displays de 7 segmentos y tres botones para
+controlar la cuenta, implementando la técnica de multiplexación para mostrar los dígitos
+en los displays. El contador comienza en 0 y aumentar o disminuir su valor en una unidad con los botones.
+*/
+
+#define A 10
+#define B 11
+#define C 5
+#define D 6
+#define E 7
+#define F 9	
+#define G 8
+
+#define UNIDAD A4
+#define DECENA A5
+#define APAGADO 0
+
+#define RESET 4
+#define SUBE 3
+#define BAJA 2
+
+int contador = 0;
+
+int subeEstadoAnterior = 0;
+int bajaEstadoAnterior = 0;
+int resetEstadoAnterior = 0;
+
+int boton;
+
+bool sube;
+bool baja;
+bool reset;
+
+void setup()
+{
+  pinMode(A, OUTPUT);
+  pinMode(B, OUTPUT);
+  pinMode(C, OUTPUT);
+  pinMode(D, OUTPUT);
+  pinMode(E, OUTPUT);
+  pinMode(F, OUTPUT);
+  pinMode(G, OUTPUT);
+  
+  pinMode(UNIDAD, OUTPUT);
+  pinMode(DECENA, OUTPUT);
+  
+  digitalWrite(UNIDAD,HIGH);
+  digitalWrite(DECENA,HIGH);
+  
+  pinMode(SUBE, INPUT_PULLUP);
+  pinMode(BAJA, INPUT_PULLUP);
+  pinMode(RESET, INPUT_PULLUP);
+  
+  Serial.begin(9600);
+}
+
+// Función principal
+
+void loop()
+{
+  boton = controlDeBoton();
+  
+  if(boton == SUBE){ // De apretar el boton de suma, incrementa en 1 el contador
+  	contador++;
+    if (contador > 99) // De pasarse del 99, reinicia el contador
+      contador = 0;
+  }
+  else if(boton == BAJA){ // De apretar el boton de resta, decrementa en 1 el contador
+   	contador--;
+    if (contador < 0)
+      contador = 99;
+  }
+  else if(boton == RESET){ // De apretar el boton de reset, reinicia el contador
+   	contador=0;
+  }
+  
+  encenderUnidad();
+  encenderDecena();
+  
+}
+
+void encenderUnidad(){
+  /* DECENA
+  Enciende el visualizador de la decena dividiendo el numero del contador
+  por 10, asi obteniendo unicamente la parte de la decena. */
+  prenderNumDisplay(contador%10);
+  prenderDisplay(UNIDAD);
+  prenderDisplay(APAGADO);
+}
+
+void encenderDecena(){ 
+  /* UNIDAD
+  Enciende el visualizador de la unidad con el resto de la division por 10,
+  asi obteniendo unicamente la parte de la unidad. */
+  prenderNumDisplay(contador/10);
+  prenderDisplay(DECENA);
+  prenderDisplay(APAGADO);
+}
+
+// Encende display
+
+void prenderDisplay(int digito){
+  // Enciende la unidad/decena o las apaga dependiendo del parametro recibido
+  if (digito == UNIDAD){
+    digitalWrite(UNIDAD, LOW);
+    digitalWrite(DECENA, HIGH);
+    delay(10);
+  }
+  else if (digito == DECENA){
+    digitalWrite(UNIDAD, HIGH);
+    digitalWrite(DECENA, LOW);
+    delay(10);
+  }
+  else{
+    digitalWrite(UNIDAD, HIGH);
+    digitalWrite(DECENA, HIGH);
+  }
+}
+
+// Controlar estado del botón
+
+int controlDeBoton(){
+  sube = digitalRead(SUBE);
+  baja = digitalRead(BAJA);
+  reset = digitalRead(RESET);
+  
+  // Dependiendo de cual boton sea presionado, se modifica el estado anterior del mismo
+  if (sube){
+    subeEstadoAnterior = 1;
+  }
+
+  if (baja){
+    bajaEstadoAnterior = 1;
+  }
+
+  if (reset){
+    resetEstadoAnterior = 1;
+  }
+  
+  /* Cuando se termine de clickear, es decir, cambie el estado del boton, devuelve
+  la salida digital del boton */
+  if (sube == 0 && sube != subeEstadoAnterior){
+    subeEstadoAnterior = sube;
+    return SUBE;
+  }
+
+  if (baja == 0 && baja != bajaEstadoAnterior){
+    bajaEstadoAnterior = baja;
+    return BAJA;
+  }
+
+  if (reset == 0 && reset != resetEstadoAnterior){
+    resetEstadoAnterior = reset;
+    return RESET;
+  }
+  
+  return 0;
+
+}
+
+// Formación de los números
+
+void prenderNumDisplay(int numero){
+  
+  digitalWrite(A, LOW);
+  digitalWrite(B, LOW);
+  digitalWrite(C, LOW);
+  digitalWrite(D, LOW);
+  digitalWrite(E, LOW);
+  digitalWrite(F, LOW);
+  digitalWrite(G, LOW);
+  
+  switch (numero) {
+    case 0:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      break;
+
+    case 1:
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+
+    case 2:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 3:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 4:
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 5:
+      digitalWrite(A, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 6:
+      digitalWrite(A, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 7:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      break;
+
+    case 8:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(E, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+
+    case 9:
+      digitalWrite(A, HIGH);
+      digitalWrite(B, HIGH);
+      digitalWrite(C, HIGH);
+      digitalWrite(D, HIGH);
+      digitalWrite(F, HIGH);
+      digitalWrite(G, HIGH);
+      break;
+  }
+}
