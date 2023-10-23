@@ -159,4 +159,5 @@ Cuanto más luz recibe, menor es la resistencia que ofrece y esto permite que lo
 # Enlaces al proyecto
 * [Parte 1](https://www.tinkercad.com/things/ajBtQkZgpyX-copy-of-primer-parcial-parte-1/editel?sharecode=kyloOgjOjRCKmidilat9jocpUBs_b18UxDfPWX8ttG4) 
 * [Parte 2](https://www.tinkercad.com/things/ks8qoWAqN0g-primer-parcial-parte-2/editel?sharecode=6q1re_Cas0dJkWkAkpKIjD-2QozqC5lB7e4nQ291InQ)
-* [Parte 3](https://www.tinkercad.com/things/02N96KsOdNK-copy-of-primer-parcial-parte-2/editel?sharecode=tjVgDfwn7Ym49k7H87_zBjwOrXnq87z_xDCaQ2rhhZw) 
+* [Parte 3](https://www.tinkercad.com/things/02N96KsOdNK-copy-of-primer-parcial-parte-2/editel?sharecode=tjVgDfwn7Ym49k7H87_zBjwOrXnq87z_xDCaQ2rhhZw)
+* [Parte 4](https://www.tinkercad.com/things/gzbG60Dl5tL-copy-of-primer-parcial-parte-3/editel?sharecode=UDC0Q3HaM8DSIuW-7a7FfiVMapQXYp2yU458Uve0PGY) 
