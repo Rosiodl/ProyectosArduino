@@ -139,6 +139,22 @@ Una posible incorporación de ambos componentes en el proyecto sería, por ejemp
 
 ![parte3](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/c082abb9-b54f-43ad-9f4e-09f1af02a95f)
 
+#### Fotoresistencia
+
+La fotoresistencia, es una resistencia cuyo valor cambia según las variaciones de la luz. 
+Están construidas con un material sensible a la luz, de tal manera que, cuando la luz incide sobre ella, el material sufre una reacción química, alterando su resistencia eléctrica. 
+Mientras mayor sea la luz que incide sobre ella, menor será la resistencia ofrecida.
+
+
+
+![fotorresistencia](https://github.com/Rosiodl/ProyectosArduino/assets/89924780/0f012372-37eb-4274-a341-37687412ba65)
+
+#### Aplicación en el proyecto
+
+En el proyecto, la fotoresistencia está directamente relacionada con el funcionamiento de los led de 7 segmentos.
+Cuanto más luz recibe, menor es la resistencia que ofrece y esto permite que los led se enciendan. Por el contrario, si la resistencia es muy alta los led se apagaran.
+
+
 
 # Enlaces al proyecto
 * [Parte 1](https://www.tinkercad.com/things/ajBtQkZgpyX-copy-of-primer-parcial-parte-1/editel?sharecode=kyloOgjOjRCKmidilat9jocpUBs_b18UxDfPWX8ttG4) 
