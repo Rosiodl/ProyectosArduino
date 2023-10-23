@@ -143,4 +143,4 @@ Una posible incorporación de ambos componentes en el proyecto sería, por ejemp
 # Enlaces al proyecto
 * [Parte 1](https://www.tinkercad.com/things/ajBtQkZgpyX-copy-of-primer-parcial-parte-1/editel?sharecode=kyloOgjOjRCKmidilat9jocpUBs_b18UxDfPWX8ttG4) 
 * [Parte 2](https://www.tinkercad.com/things/ks8qoWAqN0g-primer-parcial-parte-2/editel?sharecode=6q1re_Cas0dJkWkAkpKIjD-2QozqC5lB7e4nQ291InQ)
-* [Parte 3] 
+* [Parte 3](https://www.tinkercad.com/things/02N96KsOdNK-copy-of-primer-parcial-parte-2/editel?sharecode=tjVgDfwn7Ym49k7H87_zBjwOrXnq87z_xDCaQ2rhhZw) 
